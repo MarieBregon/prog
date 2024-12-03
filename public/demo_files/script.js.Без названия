@@ -1,0 +1,20 @@
+"undefined"!=typeof certainly_settings?certainly.WEBCHATKEY=certainly_settings.webchatKey?certainly_settings.webchatKey:"1":certainly.WEBCHATKEY="1",certainly.getCertainlyTransfer({actionName:"*",webchatKey:certainly.WEBCHATKEY,callback:function(t){t.cvars,/🔒/.test(t.message.bot_module.name)?certainly.blockInput():certainly.unblockInput()}}),certainly.blockInput=function(){if(document.querySelector("#certainly-input-blocker")){document.querySelector("#certainly-input-blocker").style.transform="scaleY(1)";return}var t=`
+<div id="certainly-input-blocker" title="Input disabled "></div>
+<style>
+	div#certainly-input-blocker {
+	position: absolute;
+	bottom: 0;
+	left: ${certainly_settings?.bot_settings?.persistent_menu?.length>0?"30px":"0"};
+	width: 100%;
+	height: 60px;
+	content: "";
+	background-color: ${certainly_settings?.bot_settings?.styles?.chatView?.backgroundColor==void 0?"white":certainly_settings.bot_settings.styles.chatView.backgroundColor};
+	cursor: no-drop;
+	z-index: 1;
+	transition: .2s ease all;
+	transform-origin: bottom;
+	transform: scaleY(0);
+	transform: scaleY(1);
+	display: block;
+}
+</style>`;document.querySelector(`#botxo-iframeContainer-${certainly.WEBCHATKEY}`).insertAdjacentHTML("afterbegin",t)},certainly.unblockInput=function(){document.querySelector("#certainly-input-blocker")&&(document.querySelector("#certainly-input-blocker").style.transform="scaleY(0)")};

@@ -1,0 +1,198 @@
+function waitForElm(e){return new Promise(t=>{if(document.querySelector(e))return t(document.querySelector(e));let n=new MutationObserver(a=>{document.querySelector(e)&&(t(document.querySelector(e)),n.disconnect())});n.observe(document.body,{childList:!0,subtree:!0})})}!function(){if(new URL(window.location.href).searchParams.get("disableCertainly"));else var e=setInterval(function(){if(certainly&&certainly_settings&&certainly_settings.cvars){clearInterval(e);let t=certainly_settings.webchatKey?certainly_settings.webchatKey:"1";var n={to_render:{},time:"",current_url:window.location.href,current_device_type:/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)?"mobile":"desktop"};certainly.trace=function(e,t){"undefined"!=typeof certainly_settings&&certainly_settings.debuggerMode&&"1"==certainly_settings.debuggerMode&&console.trace(e+"\n",t)};var a=certainly_settings.buttonHeight?certainly_settings.buttonHeight:56,o=certainly_settings.buttonWidth?certainly_settings.buttonWidth:56,r=certainly_settings.bottom?certainly_settings.bottom:40,s=certainly_settings.right?certainly_settings.right:40;let l=`
+				<style id="certainly-animation-css">
+					div#botxo-iframeContainer-${t} {
+						transform: scale(0);
+						transform-origin: 350px bottom;
+						transition: .5s cubic-bezier(0.74, -0.49, 0.18, 1.51) transform, .5s cubic-bezier(0.4, 0.4, 0.47, 1.01) opacity;
+						display: block!important;
+						opacity: 0;
+						bottom: -${.75*a}px;
+						right: -${.9*o}px;
+					}
+
+					div#botxo-iframeContainer-${t}.open {
+						transform: scale(1);
+						opacity: 1;
+					}
+
+					#botxo-button-${t}{
+						transform: scale(1);
+						transform-origin: center;
+						transition: .5s cubic-bezier(0.74, -0.49, 0.18, 1.51) transform, .25s ease opacity;
+					}
+
+					#botxo-button-${t} > svg{
+						overflow: visible;
+					}
+
+					#botxo-button-${t}:hover > svg > path, svg.widget-loading > path {
+						animation: bounce 2s;
+						animation-direction: alternate;
+						/*animation-timing-function: cubic-bezier(.5,0.05,1,.5);*/
+						animation-iteration-count: infinite;
+					}
+
+					svg.widget-loading > path {
+						animation-duration: 1s;
+					}
+
+					#botxo-button-${t}:hover > svg > path:nth-child(3), svg.widget-loading > path:nth-child(3) {
+						animation-delay: .2s;
+					}
+
+					#botxo-button-${t}:hover > svg > path:nth-child(2), svg.widget-loading > path:nth-child(2) {
+						animation-delay: .4s;
+					}
+
+					@keyframes bounce {
+						0% { transform: translate3d(0, 0, 0);     }
+						25%   { transform: translate3d(0, -1px, 0); }
+						75%   { transform: translate3d(0, 1px, 0); }
+						100%   { transform: translate3d(0, 0px, 0); }
+					}
+
+					#botxo-button-${t}:hover > img {
+						animation: pulsate 1s;
+						animation-direction: alternate;
+						animation-iteration-count: infinite;
+					}
+
+					#botxo-button-${t} > img {
+						transition:0.3s ease transform!important;
+						transform-origin: center!important;
+						-webkit-filter: drop-shadow(0 1px 16px rgba(74,74,74,0.25))!important;
+						-ms-filter: drop-shadow(0 1px 16px rgba(74,74,74,0.25))!important;
+						filter: drop-shadow(0 1px 16px rgba(74,74,74,0.25))!important;
+					}
+
+					#botxo-button-${t} > img:focus-visible {
+						outline: none!important;
+					}
+
+					#botxo-button-${t} > img.widget-loading {
+						animation-duration: .25s!important;
+					}
+
+					@keyframes pulsate {
+						0% { transform: translate(-50%, -50%) scale(1);     }
+						100%   {  transform: translate(-50%, -50%) scale(1.1); }
+					}
+
+					@media (max-width: 449px), (max-height: 449px) {
+						div#botxo-iframeContainer-${t} {
+							bottom: 0;
+							left: 0;
+							right: unset;
+						}
+					}
+
+					#certainly-popups {
+						float: left;
+						display: block;
+						position: fixed;
+						z-index: 100;
+						right: 46px;
+						bottom: 110px;
+						bottom: ${a+r}px!important;
+						right: ${s}px!important;
+						margin-bottom: 10px!important;
+						margin-right: 10px!important;
+						font-family: 'GT-Walsheim', Arial, Helvetica, sans-serif;
+					}
+					#certainly-popups >.certainly-message {
+						display: flex;
+						justify-content: flex-end;
+						margin: 0;
+						padding: 0;
+						transform: scale(1);
+						transform-origin: bottom right;
+						transition: .25s ease transform;
+					}
+					#certainly-popups >.certainly-message.certainly-message-hidden {
+						transform: scale(0);
+					}
+					#certainly-popups >.certainly-message >.certainly-bubble {
+						max-width: 250px;
+						background-color: #fdfeff;
+						border-radius: 8px 8px 0;
+						padding: 8px 16px;
+						color: #333;
+						font-family: 'GT-Walsheim', Arial, Helvetica, sans-serif;
+						font-family: inherit;
+						font-size: 14px;
+						line-height: 18px;
+						margin-top: 10px;
+						text-align: center;
+						cursor: pointer;
+						transition: .15s ease all;
+						/*box-shadow: 2px 2px 6px 0px hsl(0deg 0% 0% / 10%);*/
+						filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+					
+					}
+					#certainly-popups >.certainly-message>.certainly-bubble:hover {
+						background-color: #4364fa;
+						color: #fff;
+					}
+					svg#certainly-svg-demo {
+						height: 14px;
+						width: 32.6px;
+					}
+					#certainly-popups-close {
+						position: absolute;
+						z-index: 1;
+						right: -12px;
+						top: -4px;
+						background-color: white;
+      						color: black;
+						height: 25px;
+						width: 25px;
+						border-radius: 3px;
+						cursor: pointer;
+						font-size: 11px;
+						filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+						line-height: 25px;
+						text-align: center;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						transition: .25s ease all;
+					}
+					#certainly-popups-close:hover {
+						background-color: #ff0049;
+						color: #fff;
+					}
+					
+					#certainly-popups-close-icon {
+						width: 10px;
+						height: 10px;
+					}
+					#certainly-popups-close:hover ~ .certainly-message {
+						opacity: .5;
+					}
+					
+					.certainly-message.actions > .certainly-bubble.action {
+						background-color: #4364fa;
+						color: #fff;
+						border-radius: 8px;
+						margin: 10px 0px 0px 4px;
+						border: 1px solid #4364fa;
+						
+					}
+					
+					.certainly-message.actions > .certainly-bubble.action:hover {
+						background-color: #fff;
+						color: #4364fa;
+					}
+				</style>
+				`;document.head.insertAdjacentHTML("beforeend",l),window.addEventListener("onWidgetOpened",function(){if(certainly.destroyPopups(),!0==certainly.chat_started)document.querySelector(`#botxo-iframeContainer-${t}`).classList.add("open"),document.querySelector(`#botxo-button-${t}`).style.transform="scale(0)";else{var e,n=document.querySelector(`#botxo-button-${t}`);(e=n.querySelector("svg")?n.querySelector("svg"):n.querySelector("img")).classList.add("widget-loading"),waitForElm(`#botxo-iframeContainer-${t}`).then(t=>{setTimeout(()=>{certainly.chat_started=!0,t.classList.add("open"),n.style.transform="scale(0)",e.classList.remove("widget-loading"),"clear_past_conversations"==certainly_settings.mode&&certainly.showTypingIndicator()},250)})}}),window.addEventListener("onWidgetClosed",function(){var e=document.querySelector(`#botxo-iframeContainer-${t}`);(certainly.chat_started||document.querySelector(`#botxo-iframeContainer-${t}`))&&(e.classList.remove("open"),document.querySelector(`#botxo-button-${t}`).style.transform="scale(1)")}),certainly.getCertainlyTransfer({actionName:"*",webchatKey:t,callback(e){certainly.chat_started||(certainly.chat_started=!0,window.dispatchEvent(new CustomEvent("certainly",{detail:"chat_started"})))}}),certainly.open=function(e){certainly.widgetStatus({action:"open",webchatKey:t},()=>{e&&e()})},certainly.close=function(e){certainly.widgetStatus({action:"close",webchatKey:t},()=>{e&&e()})},certainly.toggleStatus=function(){certainly_settings.is_open?(certainly_settings.is_open=!1,certainly.close()):(certainly_settings.is_open=!0,certainly.open())},certainly.destroyPopups=function(e){if(!document.querySelector("#certainly-popups-container")){certainly.trace("Certainly Popup container not found");return}document.querySelector("#certainly-popups-container").remove(),e&&e instanceof Function&&e()},certainly.checkPopups=function(e){if("undefined"==typeof CERTAINLY_POPUPS&&certainly.trace("No popup configuration found. Please define your popup rules via the CERTAINLY_POPUPS const"),"undefined"!=typeof CERTAINLY_POPUPS&&CERTAINLY_POPUPS.length>0){var t=CERTAINLY_POPUPS.map(function(e){return e.id});if(t.some(function(e,n){return t.indexOf(e)!=n})){certainly.trace("Found popup rules with the same id property. Please ensure each popup rule has a unique id"),e&&e();return}n.to_render.all=CERTAINLY_POPUPS.filter(e=>e.condition&&e[n.current_device_type]),n.to_render.all.length>0&&(n.to_render.page_load=n.to_render.all.filter(e=>"page_load"==e.trigger),n.to_render.visitor_inactive=n.to_render.all.filter(e=>"visitor_inactive"==e.trigger),n.to_render.chat_minimized=n.to_render.all.filter(e=>"chat_minimized"==e.trigger),n.to_render.page_load.length>0&&certainly.initPopup(n.to_render.page_load[0]),n.to_render.visitor_inactive.length>0&&certainly.initPopup(n.to_render.visitor_inactive[0]),n.to_render.chat_minimized.length>0&&certainly.initPopup(n.to_render.chat_minimized[0])),0==n.to_render.length&&certainly.trace("No popups to show")}else certainly.trace("No popups found in the configuration object certainly_settings");e&&e()},certainly.initPopup=function(e){e.trigger=e.trigger?e.trigger:"page_load",e.delay=e.delay<1e3?1e3:e.delay,e.repeat_after=e.repeat_after?e.repeat_after:0,certainly_settings.cvars?.language||(certainly_settings.cvars.language="en",certainly.trace('No language found in the configuration object certainly_settings, force "en" as language.'));var n=e.messages.find(e=>certainly_settings?.cvars?.language?.toLocaleLowerCase().includes(e.language.toLocaleLowerCase()));if(e.localized_messages=n?.texts,void 0!==e.actions){var a=e.actions.find(e=>e.language==certainly_settings?.cvars?.language);e.localized_actions=a?.texts}if("page_load"==e.trigger){if(certainly_settings.cvars.current_popup=e.id,e.start_from_module&&""!=e.start_from_module&&(certainly_settings.ref=e.start_from_module),e.localized_messages?.length==0){certainly.trace("No message texts variations available for the current language");return}setTimeout(()=>{certainly.renderPopups(e)},e.delay)}else"chat_minimized"==e.trigger?(certainly.trace("This popup will be rendered when Certainly is minimized"),window.certainly_popup_on_chat_minimized=!1,window.addEventListener("onWidgetOpened",function(){window.addEventListener("onWidgetClosed",function(){!1==certainly_popup_on_chat_minimized&&(certainly_popup_on_chat_minimized=!0,setTimeout(()=>{certainly.renderPopups(e)},e.delay))})})):"visitor_inactive"==e.trigger&&(certainly.trace("Init. Inactiviy trigger"),!function n(){var a;function o(){!1==window.certainly_inactivity_triggered&&(window.certainly_inactivity_triggered=!0,setTimeout(()=>{certainly.renderPopups(e)},e.delay))}function r(){clearTimeout(a),!1==window.certainly_inactivity_triggered&&(a=setTimeout(o,e.delay))}window.certainly_inactivity_triggered=!1,document.onload=document.onmousemove=document.onmousedown=document.ontouchstart=document.ontouchmove=document.onclick=document.onkeydown=r,document.addEventListener("scroll",r,!0),document.addEventListener("certainly_conversation_updated",r,!0),certainly.getCertainlyTransfer({actionName:"*",webchatKey:t,callback(e){document.dispatchEvent(new Event("certainly_conversation_updated"))}})}())},certainly.renderPopups=function(e){if(certainly.isWidgetHidden()){certainly.trace("Certainly Widget is hidden, the following popups will not be rendered",e.localized_messages);return}if(certainly.isWidgetOpen()&&"visitor_inactive"!=e.trigger){certainly.trace("Certainly Widget is open, the following popups will not be rendered",e.localized_messages);return}if(certainly.isWidgetOpen()&&"visitor_inactive"==e.trigger){certainly.trace("Certainly Widget is open, the following popup will be sent as a message",e.localized_messages),e.localized_messages?.forEach(function(e){certainly.sendMessage({sender:"bot",message:e,webchatKey:t})});return}var n=parseInt(JSON.parse(window.localStorage.getItem(`certainly_popup_${e.id}`)));if(n||(n=0),certainly.trace(`Last occurence: ${n} (${typeof n}), repeat_after;${e.repeat_after}(${typeof e.repeat_after}), equal:${n==e.repeat_after}`),0!=e.repeat_after&&0!=n){if(n>e.repeat_after)localStorage.setItem(`certainly_popup_${e.id}`,JSON.stringify(0)),localStorage.removeItem(`certainly_popup_${e.id}`),n=0;else if(n<=e.repeat_after){certainly.trace("A popup was found but not shown due to the repeat_after setting",e),localStorage.setItem(`certainly_popup_${e.id}`,JSON.stringify(n+1));return}}if(!document.querySelector("div[id^='botxo-chat-']")){certainly.trace("Certainly Widget not found. Cannot render popups");return}document.querySelector("#certainly-popups")||(document.querySelector("div[id^='botxo-chat-']").insertAdjacentHTML("afterbegin",`<div id="certainly-popups-container">
+				<ul id="certainly-popups">
+					<div id="certainly-popups-close" style="display:none;">
+					<svg id="certainly-popups-close-icon" width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M2.13496 1.36706C1.92598 1.15808 1.58715 1.15808 1.37817 1.36706C1.16919 1.57604 1.16919 1.91487 1.37817 2.12385L7.24311 7.98879L1.37817 13.8537C1.16919 14.0627 1.16919 14.4015 1.37817 14.6105C1.58715 14.8195 1.92598 14.8195 2.13496 14.6105L7.9999 8.74558L13.8645 14.6102C14.0735 14.8192 14.4124 14.8192 14.6213 14.6102C14.8303 14.4012 14.8303 14.0624 14.6213 13.8534L8.75669 7.98879L14.6213 2.12414C14.8303 1.91516 14.8303 1.57634 14.6213 1.36735C14.4124 1.15837 14.0735 1.15837 13.8645 1.36735L7.9999 7.232L2.13496 1.36706Z" fill="currentColor"/>
+					</div>
+				</ul>
+			</div>`),document.querySelector("#certainly-popups-close").addEventListener("click",function(){certainly.destroyPopups(),window.dispatchEvent(new CustomEvent("certainly",{detail:{label:`popup_closed_${e.id}`,public:!0}}))})),e.localized_messages?.length>0&&certainly.trace("Rendering popups",e.localized_messages);for(let a=0;a<e.localized_messages?.length;a++){var o=`<li class="certainly-message certainly-message-hidden">
+				<div class="certainly-bubble" title="Chatbot wrote: ${e.localized_messages[a]}">${e.localized_messages[a]?.replace(/\n/g," <br>")}</div>
+			</li>`;document.querySelector("#certainly-popups").insertAdjacentHTML("beforeend",o)}if(void 0!==e.localized_actions){var o='<li class="certainly-message actions"></li>';document.querySelector("#certainly-popups").insertAdjacentHTML("beforeend",o);for(let r=0;r<e.localized_actions?.length;r++){var o=`<div class="certainly-bubble action" title="Say: ${e.localized_actions[r]}">${e.localized_actions[r]?.replace(/\n/g," <br>")}</div>
+					`;document.querySelector(".certainly-message.actions").insertAdjacentHTML("beforeend",o)}}var s=document.querySelectorAll(".certainly-message");s.forEach(function(t,a){if(t.classList.contains("actions")){var o=t.querySelectorAll(".certainly-bubble.action");for(i=0;i<o.length;i++)action_label=o[i].innerText,o[i].addEventListener("click",function(){certainly.destroyPopups(certainly.open()),window.dispatchEvent(new CustomEvent("certainly",{detail:{label:`popup_clicked_${e.id}`,public:!0}}))})}else t.querySelector(".certainly-bubble").addEventListener("click",function(t){"A"!=t.target.tagName&&(certainly.destroyPopups(certainly.open()),window.dispatchEvent(new CustomEvent("certainly",{detail:{label:`popup_clicked_${e.id}`,public:!0}})))});setTimeout(function(){t.classList.remove("certainly-message-hidden"),document.querySelector("#certainly-popups-close").style.display="flex",s.length==a+1&&(window.dispatchEvent(new CustomEvent("certainly",{detail:{label:`popup_displayed_${e.id}`,public:!0}})),0!=e.repeat_after&&localStorage.setItem(`certainly_popup_${e.id}`,JSON.stringify(n+1)))},1e3*a+250)})},certainly.checkPopups(function(){if("undefined"==typeof certainly_settings){certainly.trace(`Certainly could not be launched.
+You need to define your web widget settings under variable "certainly_settings"`);return}localStorage.removeItem(`statusWebchat-${t}`),fetch(`https://app.certainly.io/webbot/api/webchat/${certainly_settings.id}/configuration/`).then(e=>e.json()).then(function(e){certainly_settings.inputType="bottom",certainly_settings.bot_settings=e,!1==e.styles.widget.showPreviousConversations&&(certainly_settings.mode="clear_past_conversations"),!1!=certainly_settings.bot_settings.styles.isEnabled&&initCertainlyWidget(certainly_settings,function(){certainly.close(),window.dispatchEvent(new Event("certainly_popups_ready")),window.dispatchEvent(new CustomEvent("certainly",{detail:"chat_loaded"}));var e=document.createElement("script");e.src="https://scripts.certainly.io/extensions/certainly_input_blocker/script.js",document.head.appendChild(e)})})})}},100)}();
